@@ -1,0 +1,31 @@
+[
+    {
+        "metadata": {
+            "publish_anonymously": false,
+            "authors": "",
+            "contact_email": "noreply@gmail.com",
+            "method_name": "LoFTR",
+            "method_description": "LoFTR end-to-end matcher with 2048 features.",
+            "link_to_website": "...",
+            "link_to_pdf": "...",
+        },
+        "config_common": {
+            "json_label": "LoFTR-2k-custom_match-cv-8pt",
+            "keypoint": "LoFTR",
+            "descriptor": "LoFTR",
+            "num_keypoints": 2048,
+        },
+        "config_phototourism_stereo": {
+            "use_custom_matches": true,
+            "custom_matches_name": "LoFTR",
+            "geom": {
+                "method": "cv2-8pt"
+            },
+        },
+        "config_phototourism_multiview": {
+            "use_custom_matches": true,
+            "custom_matches_name": "LoFTR",
+            "colmap": {},
+        },
+    },
+]

@@ -72,7 +72,6 @@ def main(cfg):
         Configurations for running this part of the code.
 
     '''
-
     if os.path.exists(get_match_file(cfg)):
         print(' -- already exists, skipping match computation')
         return

@@ -263,7 +263,16 @@ def main(cfg):
         '{}.json'.format(cfg.method_dict['config_common']['json_label']))
 
     with open(json_dump_file, 'w') as outfile:
-        json.dump(master_dict, outfile, indent=2)
+        try:
+            json.dump(master_dict, outfile, indent=2)
+        except TypeError as _:
+            # FIXME: json.dump failed since there exists np.ndarray in master_dict. incorrect config or bug?
+            def array2list(_dict):
+                if not isinstance(_dict, dict):
+                    return _dict.tolist() if isinstance(_dict, np.ndarray) else _dict
+                return {k: array2list(v) for k, v in _dict.items()}
+
+            json.dump(array2list(master_dict), outfile, indent=2)
 
 
 if __name__ == '__main__':

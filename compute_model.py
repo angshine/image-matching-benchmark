@@ -127,10 +127,11 @@ def main(cfg):
     pairs_per_th = get_pairs_per_threshold(data_dir)
 
     # Get data directory
+    # FIXME: Specify exception to catch
     try:
         desc_dict = defaultdict(list)
         desc_dict1 = load_h5(get_desc_file(cfg))
-        for k, v in desc_dict.items():
+        for k, v in desc_dict1.items():
             desc_dict[k] = v
     except Exception:
         desc_dict = defaultdict(list)

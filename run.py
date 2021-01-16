@@ -212,13 +212,16 @@ def main(cfg):
                     feature_jobs = create_eval_jobs([], 'feature', cfg,
                                                     job_dict)
 
-                    # Matches
-                    match_jobs = create_eval_jobs(feature_jobs, 'match', cfg,
-                                                  job_dict)
+                    if not method[cur_key]['use_custom_matches']:
+                        # Matches
+                        match_jobs = create_eval_jobs(feature_jobs, 'match', cfg,
+                                                      job_dict)
 
-                    # Filter
-                    match_inlier_jobs = create_eval_jobs(
-                        match_jobs, 'filter', cfg, job_dict)
+                        # Filter
+                        match_inlier_jobs = create_eval_jobs(
+                            match_jobs, 'filter', cfg, job_dict)
+                    else:
+                        match_inlier_jobs = feature_jobs
 
                     # Empty dependencies
                     stereo_jobs = []

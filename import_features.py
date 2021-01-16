@@ -132,7 +132,7 @@ def import_features(cfg, data_list):
         fn_match = os.path.join(cfg.path_features, _data, 'matches.h5')
         fn_multiview_match = os.path.join(cfg.path_features, _data, 'matches_multiview.h5')
         fn_stereo_match_list = [os.path.join(cfg.path_features, _data,'matches_stereo_{}.h5').
-            format(idx) for idx in range(3)]
+                                        format(idx) for idx in range(3)]
 
         # create keypoints folder
         tgt_cur = os.path.join(
